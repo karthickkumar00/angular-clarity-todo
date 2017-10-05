@@ -1,10 +1,27 @@
-<div class="card">
-  <div class="card-block">
-      <div class="card-title">
-         <h4>User Name</h4>
+<div class="wrapper">
+  <h1>User Lists</h1>
+  <div class="card-list">
+    <div class="card" *ngFor="let  user of userLists">
+      <div class="container">
+        <div class="front">
+          <div class="inner">
+            <p>{{user.name}}</p>
+            <span>{{user.email}}</span>
+          </div>
+        </div>
+        <div class="back">
+          <div class="inner">
+            <p>User Name : {{user.username}}</p>
+            <p>Phone : {{user.phone}}</p>
+            <p>Address :{{user.address.suite}},{{user.address.street}}<br>
+              City :{{user.address.city}}<br>Zip Code :{{user.address.zipcode}}</p>
+            <p>Website:{{user.website}}</p>
+            <p>Company Name : {{user.company.name}}</p>
+          </div>
+        </div>
       </div>
-      <div class="card-text">
-        <button class="btn btn-sm btn-link">View Todos</button>
+      <div class="footer">
+        <button (click)="navigateToUserTodo(user.id)">View Todos</button>
       </div>
+    </div>
   </div>
-</div>

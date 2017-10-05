@@ -1,3 +1,24 @@
-<p>
-  user-todo works!
-</p>
+<main class="todo-page">
+  <header>
+    <h1>TODO LIST</h1>
+  </header>
+  <section class="todoapp">
+    <div class="main">
+      <ul class="todo-list">
+        <li *ngFor="let  todo of userDetails" [ngClass]="{completed: todo.completed, editing: todo.editing}">
+          <div class="view">
+            <input class="toggle" type="checkbox" [checked]="todo.completed">
+            <label (blur)="todo.editing = false" (dblclick)="todo.editing = true">{{todo.title}}</label>
+            <button class="destroy" (click)="deleteUserTodoList(todo.id)"></button>
+          </div>
+          <input (blur)="todo.editing = false" class="edit" #updatedTodo [value]="todo.title" (blur)="addNewUserTodoList(todo, updatedTodo.value)"
+            (keyup.escape)="todo.editing = false" (keyup.enter)="addNewUserTodoList(todo, updatedTodo.value)">
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <input class="new-todo" placeholder="Enter the Task to add in Todo List" [(ngModel)]="user.title" (keyup.enter)="addNewUserTodoList()" autofocus>
+  </footer>
+</main>
