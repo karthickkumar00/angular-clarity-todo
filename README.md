@@ -2,6 +2,8 @@
 
 This repository contains the source code for Angular 2 Todo APP
 
+Live Demo https://karthickkumar00.github.io/angular-clarity-todo/users
+
 ## APP
 
 View the todo List for the Users and Add, update, delete the todos list for the user.

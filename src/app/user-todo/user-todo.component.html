@@ -7,7 +7,7 @@
       <ul class="todo-list">
         <li *ngFor="let  todo of userDetails" [ngClass]="{completed: todo.completed, editing: todo.editing}">
           <div class="view">
-            <input class="toggle" type="checkbox" [checked]="todo.completed">
+            <input class="toggle" (click)="checked(todo.id)" type="checkbox" [checked]="todo.completed">
             <label (blur)="todo.editing = false" (dblclick)="todo.editing = true">{{todo.title}}</label>
             <button class="destroy" (click)="deleteUserTodoList(todo.id)"></button>
           </div>
@@ -19,6 +19,6 @@
   </section>
 
   <footer class="footer">
-    <input class="new-todo" placeholder="Enter the Task to add in Todo List" [(ngModel)]="user.title" (keyup.enter)="addNewUserTodoList()" autofocus>
+    <input class="new-todo" placeholder="Enter the Task to add in Todo List" [(ngModel)]="user.title" (keyup.enter)="addNewUserTodoList()" autofocus />
   </footer>
 </main>

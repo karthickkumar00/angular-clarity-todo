@@ -60,14 +60,24 @@ export class UserTodoComponent implements OnInit {
       }
     );
   }
-  addNewUserTodoList(data, title) {
-    console.log("user details", data);
-    if (data) {
-      let index = this.userDetails.findIndex(todo => todo.id === data.id);
-      this.userDetails[index].title = title;
-      this.userDetails[index].editing = false
-      return;
+  checked(id) {
+    let index = this.userDetails.findIndex(todo => todo.id === id);
+    if (!this.userDetails[index].completed) {
+      this.userDetails[index].completed = true;
+    } else {
+      this.userDetails[index].completed = false;
     }
+
+  }
+
+  addNewUserTodoList() {
+    // console.log("user details", data);
+    // if (data) {
+    //   let index = this.userDetails.findIndex(todo => todo.id === data.id);
+    //   this.userDetails[index].title = title;
+    //   this.userDetails[index].editing = false
+    //   return;
+    // }
     if (!this.user.title) {
       console.log("user title empty");
       return;
